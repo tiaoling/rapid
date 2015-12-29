@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="true" />
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="multipleResultSetsEnabled" value="true" />
+        <setting name="useColumnLabel" value="true" />
+        <setting name="defaultExecutorType" value="REUSE" />
+        <setting name="defaultStatementTimeout" value="25000" />
+    </settings>
+    <typeAliases>
+
+        <typeAlias type="com.xiaojiuwo.models.Point" alias="Point"/>
+        <typeAlias type="com.xiaojiuwo.models.Station" alias="Station"/>
+        <typeAlias type="com.xiaojiuwo.models.Area" alias="Area"/>
+        <typeAlias type="com.xiaojiuwo.models.Commission" alias="Commission"/>
+    </typeAliases>
+    <typeHandlers>
+	  <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.xiaojiuwo.support.enums.VerifyStatus"/>
+	  <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.xiaojiuwo.support.enums.MatchStatus"/>
+	<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.xiaojiuwo.support.enums.VerifyOperatorType"/>
+	</typeHandlers>
+
+	<!-- 插件配置 -->
+	<plugins>
+		<plugin interceptor="com.xiaojiuwo.support.page.PaginationInterceptor" />
+    </plugins>
+</configuration>

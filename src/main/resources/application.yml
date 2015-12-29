@@ -1,0 +1,74 @@
+spring:
+  profiles.active: development
+  datasource:
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.3.47.70)(PORT=10001))(CONNECT_DATA=(SERVICE_NAME=dev02)))
+    username: rfd_dev_rl
+    password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
+  thymeleaf:
+    cache: false
+  pidfile: shared/tmp/pids/application.pid
+server:
+  port: 10001
+
+logging:
+    level:
+        org.springframework: 'OFF'
+        com.xiaojiuwo.models.mapper: 'DEBUG'
+
+---
+
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.3.47.70)(PORT=10001))(CONNECT_DATA=(SERVICE_NAME=dev02)))
+    username: rfd_dev_rl
+    password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
+    mysql-url: jdbc:mysql://localhost:3306/price_development
+    mysql-username: root
+    mysql-password: 22143521
+
+logging:
+  level:
+    org.springframework: INFO
+    com.xiaojiuwo.models.mapper: DEBUG
+    root: INFO
+    
+---
+
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.3.47.70)(PORT=10001))(CONNECT_DATA=(SERVICE_NAME=dev02)))
+    username: rfd_dev_rl
+    password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
+    mysql-url: jdbc:mysql://10.230.3.191:3306/price_production
+    mysql-username: price_production
+    mysql-password: 123
+
+logging:
+  level:
+    org.springframework: ERROR
+    com.xiaojiuwo.models.mapper: ERROR
+    root: ERROR
+---
+
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 10.230.2.101)(PORT = 10001))(ADDRESS = (PROTOCOL = TCP)(HOST = 10.230.4.81)(PORT = 10001))(ADDRESS = (PROTOCOL = TCP)(HOST = 10.230.4.91)(PORT = 10001)))(CONNECT_DATA =(SERVER=DEDICATED)(SERVICE_NAME = rfd01_rl)))
+    username: rfd_dev_rl
+    password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
+    mysql-url: jdbc:mysql://10.230.3.13:3307/price_production
+    mysql-username: price_prog
+    mysql-password: 1ACCD6ADE6BC3A92D0
+
+logging:
+  level:
+    org.springframework: ERROR
+    com.xiaojiuwo.models.mapper: ERROR
+    root: ERROR
+
+
+
+
+

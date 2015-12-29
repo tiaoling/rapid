@@ -1,0 +1,37 @@
+spring:
+  profiles.active: development
+  datasource:
+    url
+    username: rfd_dev_rl
+    password: xxxx
+  thymeleaf:
+    cache: false
+  pidfile: app.pid
+server:
+  port: 10001
+
+---
+
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://localhost:3306/price_development
+    username: root
+    password: xxxx
+    driverClassName: com.mysql.jdbc.Driver
+
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:mysql://localhost:3306/price_development
+    username: root
+    password: 22143521
+    driverClassName: com.mysql.jdbc.Driver
+
+
+
+
+

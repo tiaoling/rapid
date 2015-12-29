@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaojiuwo.models.mapper.PointsMapper">
+
+
+    <insert id="insert" parameterType="Point" keyProperty="id" useGeneratedKeys="true">
+        insert into points(
+        pointable_id,
+        pointable_type,
+        lantitude,
+        longitude,
+        created_at,
+        updated_at)
+
+        values(
+        #{pointableId},
+        #{pointableType},
+        #{lantitude},
+        #{longitude},
+        #{createdAt},
+        #{updatedAt}
+        )
+
+    </insert>
+
+
+
+    <delete id="delete" parameterType="map">
+        delete from points where id = #{id}
+    </delete>
+
+    <delete id="deleteAreaPoints" parameterType="map">
+        delete from points where pointable_id = #{pointableId} and pointable_type='Area'
+    </delete>
+</mapper>

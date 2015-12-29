@@ -1,0 +1,22 @@
+spring:
+  profiles.active: development
+  datasource:
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.3.47.70)(PORT=10001))(CONNECT_DATA=(SERVICE_NAME=dev02)))
+    username: rfd_dev_rl
+    password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
+    mysql-url: jdbc:mysql://localhost:3306/price_test
+    mysql-username: root
+    mysql-password: 22143521
+  thymeleaf:
+    cache: false
+  pidfile: shared/tmp/pids/application.pid
+server:
+  port: 10001
+
+
+
+
+
+
+
+
