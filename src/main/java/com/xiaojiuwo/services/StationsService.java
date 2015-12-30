@@ -47,15 +47,5 @@ public class StationsService extends BaseService<Station>{
         return myBatisGeneralDao.getSqlSession().selectOne("com.xiaojiuwo.models.mapper.StationsMapper.findStationById", id);
     }
 
-    public int save(Station station){
-        return myBatisGeneralMySqlDao.getSqlSession().insert("com.xiaojiuwo.models.mapper.StationsMapper.insert", station);
-    }
 
-    public int delete(long id){
-        return myBatisGeneralMySqlDao.getSqlSession().delete("com.xiaojiuwo.models.mapper.StationsMapper.delete", id);
-    }
-
-    public Station findStationFromMysql(long id){
-        return myBatisGeneralMySqlDao.getSqlSession().selectOne("com.xiaojiuwo.models.mapper.StationsMapper.findStationFromMysql", id);
-    }
 }

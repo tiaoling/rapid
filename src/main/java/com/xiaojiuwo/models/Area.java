@@ -1,8 +1,5 @@
 package com.xiaojiuwo.models;
 
-import com.xiaojiuwo.BaseModel;
-
-import java.util.Date;
 import java.util.List;
 
 /**

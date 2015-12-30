@@ -1,4 +1,4 @@
-package com.xiaojiuwo;
+package com.xiaojiuwo.models;
 
 import java.util.Date;
 

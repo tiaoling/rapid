@@ -1,4 +1,5 @@
 .settings/
+/out/
 /.gradle/
 /.idea/
 /build/

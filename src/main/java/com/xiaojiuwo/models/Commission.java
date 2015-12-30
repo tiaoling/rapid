@@ -1,9 +1,5 @@
 package com.xiaojiuwo.models;
 
-import com.xiaojiuwo.BaseModel;
-
-import java.util.List;
-
 /**
  * Created by liuhaibao on 15/10/31.
  */

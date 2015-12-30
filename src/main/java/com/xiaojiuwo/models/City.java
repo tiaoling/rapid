@@ -1,7 +1,5 @@
 package com.xiaojiuwo.models;
 
-import com.xiaojiuwo.BaseModel;
-
 /**
  * Created by liuhaibao on 15/10/31.
  */
