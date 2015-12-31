@@ -35,7 +35,7 @@ import static org.junit.Assert.assertEquals;
 @SpringApplicationConfiguration(classes = Application.class)
 
 //@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-//@Transactional
+@Transactional
 public class UsersServiceTest {
 
     @Autowired
