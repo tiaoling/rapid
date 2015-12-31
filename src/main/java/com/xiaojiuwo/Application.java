@@ -23,7 +23,6 @@ public class Application {
         springApplication.addListeners(new ApplicationPidFileWriter());
         springApplication.run(args);
 
-        //SpringApplication.run(Application.class, args);
     }
 }
 

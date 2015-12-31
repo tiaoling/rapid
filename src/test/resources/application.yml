@@ -1,21 +1,31 @@
 spring:
-  profiles.active: development
+
   datasource:
-    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.3.47.70)(PORT=10001))(CONNECT_DATA=(SERVICE_NAME=dev02)))
-    username: rfd_dev_rl
-    password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
-    mysql-url: jdbc:mysql://localhost:3306/price_test
-    mysql-username: root
-    mysql-password: 22143521
+    url: jdbc:h2:mem:base;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      database: H2
+      show-sql: true
+      format-sql: true
   thymeleaf:
     cache: false
+
   pidfile: shared/tmp/pids/application.pid
 server:
   port: 10001
 
-
-
-
+logging:
+    level:
+        org.springframework: 'OFF'
+        com.xiaojiuwo.models.mapper: 'DEBUG'
 
 
 

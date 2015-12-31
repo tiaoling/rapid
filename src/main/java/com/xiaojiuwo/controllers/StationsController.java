@@ -1,4 +1,4 @@
-package com.xiaojiuwo.controller;
+package com.xiaojiuwo.controllers;
 
 import com.alibaba.fastjson.JSON;
 import com.xiaojiuwo.models.Point;

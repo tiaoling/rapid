@@ -2,6 +2,7 @@
 /out/
 /.gradle/
 /.idea/
+/shared/
 /build/
 /bower_components/
 /node_modules/

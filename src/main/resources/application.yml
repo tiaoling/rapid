@@ -8,6 +8,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
 
   jpa:
+    generate-ddl: true
     hibernate:
       ddl-auto: create-drop
       naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
