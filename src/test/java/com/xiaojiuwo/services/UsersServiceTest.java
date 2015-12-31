@@ -47,8 +47,8 @@ public class UsersServiceTest {
         User user = new User();
 
         user.setName("ass");
-        long a = usersService.save(user);
-        assertThat("", a, greaterThan(0L));
+        User user1 = usersService.save(user);
+        assertThat("", user1.getId(), greaterThan(0L));
 
     }
 

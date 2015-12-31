@@ -32,6 +32,4 @@ public class BaseModel{
 		this.id = id;
 	}
 
-
-
 }

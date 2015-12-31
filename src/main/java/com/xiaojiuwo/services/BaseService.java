@@ -1,5 +1,6 @@
 package com.xiaojiuwo.services;
 
+import com.xiaojiuwo.dao.GeneralRepository;
 import com.xiaojiuwo.dao.MyBatisGeneralDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,9 @@ public class BaseService<T> {
 
     @Resource(name = "myBatisGeneralDao")
     protected MyBatisGeneralDao myBatisGeneralDao;
+
+    @Autowired
+    protected GeneralRepository generalRepository;
 
     public MyBatisGeneralDao getMyBatisGeneralDao() {
         return myBatisGeneralDao;

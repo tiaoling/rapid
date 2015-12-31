@@ -1,6 +1,5 @@
 package com.xiaojiuwo.services;
 
-import com.xiaojiuwo.dao.UserRepository;
 import com.xiaojiuwo.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,12 +11,11 @@ import javax.transaction.Transactional;
  */
 @Service
 @Transactional
-public class UsersService {
+public class UsersService extends BaseService<User>{
 
-    @Autowired
-    private UserRepository userRepository;
 
-    public Long save(User user){
-        return userRepository.save(user);
+    public User save(User user){
+        generalRepository.getEntityManager().persist(user);
+        return user;
     }
 }
