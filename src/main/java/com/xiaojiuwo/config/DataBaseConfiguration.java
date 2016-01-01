@@ -8,7 +8,9 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.mail.MailProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -38,9 +40,11 @@ import java.util.Properties;
         "com.xiaojiuwo.models"
 })
 @EnableTransactionManagement
+
 public class DataBaseConfiguration {
 
-
+    @Autowired
+    private  JpaConfiguration jpaConfiguration;
 
     @Bean
     @ConfigurationProperties(prefix="spring.datasource")
@@ -79,8 +83,8 @@ public class DataBaseConfiguration {
 
 
     @Bean
-    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource,
-                                                                Environment env) {
+    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource
+                                                                ) {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
@@ -90,30 +94,32 @@ public class DataBaseConfiguration {
 
         //Configures the used database dialect. This allows Hibernate to create SQL
         //that is optimized for the used database.
-       // jpaProperties.put("hibernate.dialect", env.getRequiredProperty("spring.hibernate.dialect"));
+        jpaProperties.put("hibernate.dialect", jpaConfiguration.getHibernate().getDialect());
 
         //Specifies the action that is invoked to the database when the Hibernate
         //SessionFactory is created or closed.
         jpaProperties.put("hibernate.hbm2ddl.auto",
-                env.getRequiredProperty("spring.jpa.hibernate.ddl-auto")
+                jpaConfiguration.getGenerate_ddl()
         );
 
         //Configures the naming strategy that is used when Hibernate creates
         //new database objects and schema elements
+
+
         jpaProperties.put("hibernate.ejb.naming_strategy",
-                env.getRequiredProperty("spring.jpa.hibernate.naming_strategy")
+                jpaConfiguration.getHibernate().getNaming_strategy()
         );
 
         //If the value of this property is true, Hibernate writes all SQL
         //statements to the console.
         jpaProperties.put("hibernate.show_sql",
-                env.getRequiredProperty("spring.jpa.hibernate.show-sql")
+                jpaConfiguration.getHibernate().getShow_sql()
         );
 
         //If the value of this property is true, Hibernate will format the SQL
         //that is written to the console.
         jpaProperties.put("hibernate.format_sql",
-                env.getRequiredProperty("spring.jpa.hibernate.format-sql")
+                jpaConfiguration.getHibernate().getShow_sql()
         );
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
@@ -128,26 +134,5 @@ public class DataBaseConfiguration {
         return transactionManager;
     }
 
-//    @Bean
-//    ServletContextTemplateResolver templateResolver(){
-//        ServletContextTemplateResolver resolver=new ServletContextTemplateResolver();
-//        resolver.setSuffix(".html");
-//        resolver.setPrefix("/resources/templates/");
-//        resolver.setTemplateMode("HTML5");
-//        return resolver;
-//    }
-//
-//    @Bean
-//    SpringTemplateEngine engine(){
-//        SpringTemplateEngine engine=new SpringTemplateEngine();
-//        engine.setTemplateResolver(templateResolver());
-//        return engine;
-//    }
-//
-//    @Bean
-//    ThymeleafViewResolver viewResolver(){
-//        ThymeleafViewResolver viewResolver=new ThymeleafViewResolver();
-//        viewResolver.setTemplateEngine(engine());
-//        return viewResolver;
-//    }
+
 }

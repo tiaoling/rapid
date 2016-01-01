@@ -1,20 +1,21 @@
 spring:
 
   datasource:
-    url: jdbc:h2:mem:base;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:~/base;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driverClassName: org.h2.Driver
     username: sa
     password:
     database-platform: org.hibernate.dialect.H2Dialect
 
   jpa:
-    generate-ddl: true
+    generate_ddl: true
     hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
       ddl-auto: create-drop
       naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
       database: H2
-      show-sql: true
-      format-sql: true
+      show_sql: true
+      format_sql: true
   thymeleaf:
     cache: false
 
