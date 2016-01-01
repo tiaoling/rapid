@@ -37,7 +37,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {
-        "com.xiaojiuwo.models"
+        "com.xiaojiuwo.dao"
 })
 @EnableTransactionManagement
 
@@ -88,7 +88,7 @@ public class DataBaseConfiguration {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setPackagesToScan("com.xiaojiuwo.models");
+        entityManagerFactoryBean.setPackagesToScan("com.xiaojiuwo.dao");
 
         Properties jpaProperties = new Properties();
 
@@ -99,7 +99,7 @@ public class DataBaseConfiguration {
         //Specifies the action that is invoked to the database when the Hibernate
         //SessionFactory is created or closed.
         jpaProperties.put("hibernate.hbm2ddl.auto",
-                jpaConfiguration.getGenerate_ddl()
+                jpaConfiguration.getHibernate().getDdl_auto()
         );
 
         //Configures the naming strategy that is used when Hibernate creates

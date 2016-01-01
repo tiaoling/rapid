@@ -1,5 +1,6 @@
 package com.xiaojiuwo.models;
 
+
 import javax.persistence.*;
 
 /**

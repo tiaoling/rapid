@@ -15,7 +15,7 @@ public class UsersService extends BaseService<User>{
 
 
     public User save(User user){
-        generalRepository.getEntityManager().persist(user);
+
         return user;
     }
 }

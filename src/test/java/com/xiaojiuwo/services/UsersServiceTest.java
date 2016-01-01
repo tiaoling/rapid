@@ -1,6 +1,7 @@
 package com.xiaojiuwo.services;
 
 import com.xiaojiuwo.Application;
+import com.xiaojiuwo.dao.UserRepository;
 import com.xiaojiuwo.models.Area;
 import com.xiaojiuwo.models.Point;
 import com.xiaojiuwo.models.Station;
@@ -42,6 +43,9 @@ public class UsersServiceTest {
     private UsersService usersService;
 
 
+    @Autowired
+    UserRepository userRepository;
+
     @Test
     public void testSave(){
         User user = new User();
@@ -52,4 +56,13 @@ public class UsersServiceTest {
 
     }
 
+    @Test
+    public void testRepoSave(){
+        User user = new User();
+
+        user.setName("ass");
+        User user1 = userRepository.save(user);
+        assertThat("", user1.getId(), greaterThan(0L));
+
+    }
 }
