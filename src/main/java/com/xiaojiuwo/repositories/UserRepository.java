@@ -1,4 +1,4 @@
-package com.xiaojiuwo.dao;
+package com.xiaojiuwo.repositories;
 
 import com.xiaojiuwo.models.User;
 import org.springframework.data.domain.Page;

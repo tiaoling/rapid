@@ -2,42 +2,30 @@ package com.xiaojiuwo.config;
 
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.xiaojiuwo.dao.MyBatisGeneralDao;
+import com.xiaojiuwo.repositories.MyBatisGeneralRepository;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.mail.MailProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.sql.SQLException;
 import java.util.Properties;
 
 
 @Configuration
 @EnableJpaRepositories(basePackages = {
-        "com.xiaojiuwo.dao"
+        "com.xiaojiuwo.repositories"
 })
 @EnableTransactionManagement
 
@@ -66,12 +54,12 @@ public class DataBaseConfiguration {
         return sqlSessionFactory.getObject();
     }
 
-    @Bean(name="myBatisGeneralDao")
-    public MyBatisGeneralDao setMyBatisSeneralDao() throws Exception {
-        MyBatisGeneralDao myBatisGeneralDao = new MyBatisGeneralDao();
-        myBatisGeneralDao.setSqlSessionFactory(sqlSessionFactory());
+    @Bean(name="myBatisGeneralRepository")
+    public MyBatisGeneralRepository setMyBatisSeneralDao() throws Exception {
+        MyBatisGeneralRepository myBatisGeneralRepository = new MyBatisGeneralRepository();
+        myBatisGeneralRepository.setSqlSessionFactory(sqlSessionFactory());
 
-        return myBatisGeneralDao;
+        return myBatisGeneralRepository;
     }
 
 //    @Bean
@@ -88,7 +76,7 @@ public class DataBaseConfiguration {
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setPackagesToScan("com.xiaojiuwo.dao");
+        entityManagerFactoryBean.setPackagesToScan("com.xiaojiuwo.models");
 
         Properties jpaProperties = new Properties();
 

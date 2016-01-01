@@ -12,10 +12,8 @@
     </settings>
     <typeAliases>
 
-        <typeAlias type="com.xiaojiuwo.models.Point" alias="Point"/>
-        <typeAlias type="com.xiaojiuwo.models.Station" alias="Station"/>
-        <typeAlias type="com.xiaojiuwo.models.Area" alias="Area"/>
-        <typeAlias type="com.xiaojiuwo.models.Commission" alias="Commission"/>
+
+        <typeAlias type="com.xiaojiuwo.models.User" alias="User"/>
     </typeAliases>
 
 

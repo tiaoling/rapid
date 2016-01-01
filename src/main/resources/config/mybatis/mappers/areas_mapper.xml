@@ -5,7 +5,7 @@
 
 
 
-    <select id="findStationAreaPoints" resultType="Station" parameterType="map">
+    <select id="findStationAreaPoints" resultType="User" parameterType="map">
       select
         p.id as id,
         s.id as stationId,
@@ -26,7 +26,7 @@
 
     </select>
 
-    <select id="findSataionAreas" resultType="Area" parameterType="map">
+    <select id="findSataionAreas" resultType="User" parameterType="map">
         select
 
         a.id as id,
@@ -44,7 +44,7 @@
 
     </select>
 
-    <select id="findAreaPoints" resultType="Point" parameterType="map">
+    <select id="findAreaPoints" resultType="User" parameterType="map">
         select
 
         p.id as id,
@@ -59,7 +59,7 @@
 
     </select>
 
-    <insert id="insert" parameterType="Area" keyProperty="id" useGeneratedKeys="true">
+    <insert id="insert" parameterType="User" keyProperty="id" useGeneratedKeys="true">
         insert into areas(
         station_id,
         label,

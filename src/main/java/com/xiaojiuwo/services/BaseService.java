@@ -1,8 +1,7 @@
 package com.xiaojiuwo.services;
 
 
-import com.xiaojiuwo.dao.MyBatisGeneralDao;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xiaojiuwo.repositories.MyBatisGeneralRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,16 +15,16 @@ import javax.annotation.Resource;
 public class BaseService<T> {
 
 
-    @Resource(name = "myBatisGeneralDao")
-    protected MyBatisGeneralDao myBatisGeneralDao;
+    @Resource(name = "myBatisGeneralRepository")
+    protected MyBatisGeneralRepository myBatisGeneralRepository;
 
 
-    public MyBatisGeneralDao getMyBatisGeneralDao() {
-        return myBatisGeneralDao;
+    public MyBatisGeneralRepository getMyBatisGeneralRepository() {
+        return myBatisGeneralRepository;
     }
 
-    public void setMyBatisGeneralDao(MyBatisGeneralDao myBatisGeneralDao) {
-        this.myBatisGeneralDao = myBatisGeneralDao;
+    public void setMyBatisGeneralRepository(MyBatisGeneralRepository myBatisGeneralRepository) {
+        this.myBatisGeneralRepository = myBatisGeneralRepository;
     }
 
 }

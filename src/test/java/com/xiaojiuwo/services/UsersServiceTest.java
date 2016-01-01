@@ -1,29 +1,17 @@
 package com.xiaojiuwo.services;
 
 import com.xiaojiuwo.Application;
-import com.xiaojiuwo.dao.UserRepository;
-import com.xiaojiuwo.models.Area;
-import com.xiaojiuwo.models.Point;
-import com.xiaojiuwo.models.Station;
+import com.xiaojiuwo.repositories.UserRepository;
+
 import com.xiaojiuwo.models.User;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
-import sun.jvm.hotspot.utilities.Assert;
-
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.number.OrderingComparison.comparesEqualTo;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.Assert.assertEquals;
