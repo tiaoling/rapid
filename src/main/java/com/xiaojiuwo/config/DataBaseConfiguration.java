@@ -47,7 +47,7 @@ public class DataBaseConfiguration {
         sqlSessionFactory.setDataSource(druidDataSource());
         sqlSessionFactory.setConfigLocation(new ClassPathResource("config/mybatis/mybatis-config.xml"));
         sqlSessionFactory.setFailFast(true);
-        Resource mapperResource = new ClassPathResource("config/mybatis/mappers/areas_mapper.xml");
+        Resource mapperResource = new ClassPathResource("config/mybatis/mappers/users_mapper.xml");
         sqlSessionFactory.setMapperLocations(new Resource[]{mapperResource});
         //sqlSessionFactory.setTypeHandlersPackage("org.horiga.study.mybatis.typehandler");
 

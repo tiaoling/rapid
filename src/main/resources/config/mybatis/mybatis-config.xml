@@ -12,7 +12,6 @@
     </settings>
     <typeAliases>
 
-
         <typeAlias type="com.xiaojiuwo.models.User" alias="User"/>
     </typeAliases>
 

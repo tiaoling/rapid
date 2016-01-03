@@ -11,6 +11,8 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
@@ -51,6 +53,17 @@ public class UsersServiceTest {
         user.setName("ass");
         User user1 = userRepository.save(user);
         assertThat("", user1.getId(), greaterThan(0L));
+
+    }
+
+    @Test
+    public void testFindByName(){
+        User user = new User();
+        user.setName("ass");
+        User user1 = userRepository.save(user);
+
+        List<User> users = usersService.findByName("ass");
+        assertThat("", users.size(), greaterThan(0));
 
     }
 }
