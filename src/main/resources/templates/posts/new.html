@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <title>账期管理</title>
+    <meta charset="utf-8" />
+</head>
+<body data-controller="account" data-action="new">
+
+            <form accept-charset="UTF-8" action="/posts" class="form-horizontal" id="new-account-form" method="post" th:object="${post}">
+
+
+                <p>
+                    <input type="text" th:field="*{title}"/>
+                </p>
+                <p>
+                    <textarea th:field="*{content}">
+
+                    </textarea>
+
+                </p>
+
+                <div class="btn-group">
+                    <p class="pull-right">
+                        <button type="submit" class="btn btn-primary btn-sm" id="submitId">确认</button>
+                    </p>
+                </div>
+
+            </form>
+
+
+</body>
+</html>

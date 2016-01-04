@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>首页</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div>
+
+    <div class="table-scrollable">
+        <table class="table table-bordered table-condensed table-striped table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>title</th>
+                <th>content</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c:${posts}">
+                <td th:text="${c.id}"></td>
+                <td th:text="${c.title}"></td>
+                <td th:utext="${c.content}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
