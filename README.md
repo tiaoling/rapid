@@ -1,7 +1,7 @@
 
 #Java Base Project
 
-基于spring boot 的java快速开发项目模版
+基于spring boot 的java快速开发项目模版 [![Build Status](https://travis-ci.org/tiaoling/java-base.svg?branch=dev)](https://travis-ci.org/tiaoling/java-base)
 
 ### 运行
 项目自带嵌入式数据库，如需其他数据库，自行更改，运行前需已安装jdk,
