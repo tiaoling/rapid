@@ -16,4 +16,16 @@
     </select>
 
 
+    <select id="sqlInject" resultType="User" parameterType="User">
+        select
+        id as id,
+        name as name,
+        password as password,
+        state as state
+
+        from user u
+
+        where u.name = '${name}'
+        and u.password = '${password}'
+    </select>
 </mapper>

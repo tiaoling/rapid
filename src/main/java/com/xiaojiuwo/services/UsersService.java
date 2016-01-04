@@ -28,4 +28,17 @@ public class UsersService extends BaseService<User>{
         user.setName(name);
         return myBatisGeneralRepository.getSqlSession().selectList("com.xiaojiuwo.models.mapper.UsersMapper.findUsersByName", user);
     }
+
+    /**
+     * warning: this version is bad, do not use it in production
+     * it is a version of sql inject verion, try to prevent this when in production
+     * @param name
+     * @return
+     */
+    public List<User> findByNameSqlInject(String name, String password){
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
+        return myBatisGeneralRepository.getSqlSession().selectList("com.xiaojiuwo.models.mapper.UsersMapper.sqlInject", user);
+    }
 }

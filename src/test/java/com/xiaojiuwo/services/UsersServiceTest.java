@@ -60,9 +60,26 @@ public class UsersServiceTest {
     public void testFindByName(){
         User user = new User();
         user.setName("ass");
-        User user1 = userRepository.save(user);
+        User user1 = usersService.save(user);
 
         List<User> users = usersService.findByName("ass");
+        assertThat("", users.size(), greaterThan(0));
+
+    }
+
+    @Test
+    public void testInjectName(){
+        User user = new User();
+        user.setName("ass");
+        user.setPassword("1111111");
+        usersService.save(user);
+
+
+        String username = "fff";
+        String password = " 'or 1=1--";
+
+        List<User> users = usersService.findByNameSqlInject(username,password);
+
         assertThat("", users.size(), greaterThan(0));
 
     }
