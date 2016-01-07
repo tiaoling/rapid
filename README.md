@@ -1,7 +1,9 @@
 
 #Java Base Project
 
-[![Build Status](https://travis-ci.org/tiaoling/java-base.svg?branch=master)](https://travis-ci.org/tiaoling/java-base) [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
+[![Build Status](https://travis-ci.org/tiaoling/java-base.svg?branch=master)](https://travis-ci.org/tiaoling/java-base)
+[![Coverage Status](https://coveralls.io/repos/tiaoling/java-base/badge.svg?branch=master&service=github)](https://coveralls.io/github/tiaoling/java-base?branch=master)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hyperium/hyper/master/LICENSE)
 
 
 基于spring boot 的java快速开发项目模版
