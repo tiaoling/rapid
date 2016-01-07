@@ -40,30 +40,25 @@ public class UsersServiceTest {
     public void testSave(){
         User user = new User();
 
-        user.setName("ass");
+        String name = "assss";
+        user.setName(name);
         User user1 = usersService.save(user);
         assertThat("", user1.getId(), greaterThan(0L));
-
+        assertEquals(name, user1.getName());
     }
 
-    @Test
-    public void testRepoSave(){
-        User user = new User();
-
-        user.setName("ass");
-        User user1 = userRepository.save(user);
-        assertThat("", user1.getId(), greaterThan(0L));
-
-    }
 
     @Test
     public void testFindByName(){
         User user = new User();
-        user.setName("ass");
+
+        String name = "assss";
+        user.setName(name);
         User user1 = userRepository.save(user);
 
-        List<User> users = usersService.findByName("ass");
+        List<User> users = usersService.findByName(name);
         assertThat("", users.size(), greaterThan(0));
+        assertEquals(name, users.get(0).getName());
 
     }
 }
