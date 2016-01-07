@@ -16,7 +16,7 @@ public class Post {
     @Column
     private String title;
 
-    @Column
+    @Column(length = 4000)
     private String content;
 
     public Long getId() {
