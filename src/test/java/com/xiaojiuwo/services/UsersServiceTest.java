@@ -55,10 +55,8 @@ public class UsersServiceTest {
         String name = "assss";
         user.setName(name);
         User user1 = userRepository.save(user);
-
         List<User> users = usersService.findByName(name);
         assertThat("", users.size(), greaterThan(0));
         assertEquals(name, users.get(0).getName());
-
     }
 }
