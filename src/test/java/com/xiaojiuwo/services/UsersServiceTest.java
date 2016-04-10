@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -25,7 +26,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 
-//@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 @Transactional
 public class UsersServiceTest {
 
@@ -33,8 +34,6 @@ public class UsersServiceTest {
     private UsersService usersService;
 
 
-    @Autowired
-    UserRepository userRepository;
 
     @Test
     public void testSave(){
@@ -54,7 +53,7 @@ public class UsersServiceTest {
 
         String name = "assss";
         user.setName(name);
-        User user1 = userRepository.save(user);
+        User user1 = usersService.save(user);
         List<User> users = usersService.findByName(name);
         assertThat("", users.size(), greaterThan(0));
         assertEquals(name, users.get(0).getName());

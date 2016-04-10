@@ -15,8 +15,7 @@ import org.springframework.context.annotation.ImportResource;
 @Configuration
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,DataSourceTransactionManagerAutoConfiguration.class})
 @ComponentScan
-
-//@ImportResource("classpath:config/applicationContext.xml")
+@ImportResource("classpath:config/applicationContext.xml")
 public class Application {
 
     public static void main(String[] args) {
