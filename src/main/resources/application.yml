@@ -1,7 +1,7 @@
 spring:
 
   datasource:
-    url: jdbc:h2:~/base;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:~/base;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
     driverClassName: org.h2.Driver
     username: sa
     password:
@@ -29,5 +29,11 @@ logging:
         com.xiaojiuwo.models.mapper: 'DEBUG'
 
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
 
-
+  instance:
+    hostname: Soar
+    nonSecurePort: 80
