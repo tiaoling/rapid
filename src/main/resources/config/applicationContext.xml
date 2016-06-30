@@ -66,8 +66,10 @@
               </property>
        </bean>
        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
-             p:dataSource-ref="druidDataSource" p:configLocation="classpath:config/mybatis/mybatis-config.xml"
-             p:mapperLocations="classpath:config/mybatis/mappers/*.xml" />
+             p:dataSource-ref="druidDataSource"
+
+             p:configLocation="classpath:config/mybatis/mybatis-config.xml"
+             p:mapperLocations="classpath*:config/mybatis/mappers/*.xml" />
        <!-- baseIbatisDao -->
        <bean id="myBatisGeneralRepository" class="com.xiaojiuwo.repositories.MyBatisGeneralRepository">
               <property name="sqlSessionFactory">

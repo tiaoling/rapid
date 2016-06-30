@@ -1,19 +1,21 @@
-task versions{
-    ext{
-        jdkVersion = '1.8'
-        myBatisVsersion= '3.4.1'
-        springMybatisVersion= '1.3.0'
-        druidVersion = '1.0.20'
-        pagehelperVersion = '4.1.6'
-        jsqlparserVersion = '0.9.5'
-        fastjsonVersion = '1.2.13'
-        mysqlVersion = '6.0.3'
-        commonsVersion = '3.4'
-        guavaVersion = '19.0'
-        h2Version = '1.4.192'
-    }
 
+
+ext{
+    jdkVersion = '1.8'
+    myBatisVsersion= '3.4.1'
+    springMybatisVersion= '1.3.0'
+    druidVersion = '1.0.20'
+    pagehelperVersion = '4.1.6'
+    jsqlparserVersion = '0.9.5'
+    fastjsonVersion = '1.2.13'
+    mysqlVersion = '6.0.3'
+    commonsVersion = '3.4'
+    guavaVersion = '19.0'
+    h2Version = '1.4.192'
+
+    projectVersion = '0.1.1'
 }
+
 
 buildscript {
     ext {
@@ -43,10 +45,10 @@ apply plugin: "org.sonarqube"
 
 jar {
     baseName = project.name
-    version = '0.1.1'
+    version =  "$projectVersion"
 }
-sourceCompatibility = "${versions.jdkVersion}"
-targetCompatibility = "${versions.jdkVersion}"
+sourceCompatibility = "${jdkVersion}"
+targetCompatibility = "${jdkVersion}"
 
 repositories {
     mavenCentral()
@@ -61,6 +63,7 @@ repositories {
 configurations {
     providedRuntime
     driver
+    compile.exclude module: "spring-boot-starter-tomcat"
 }
 
 
@@ -82,24 +85,24 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-    compile("org.mybatis:mybatis:${versions.myBatisVsersion}")
-    compile("org.mybatis:mybatis-spring:${versions.springMybatisVersion}")
-    compile("com.alibaba:druid:${versions.druidVersion}")
+    compile("org.mybatis:mybatis:${myBatisVsersion}")
+    compile("org.mybatis:mybatis-spring:${springMybatisVersion}")
+    compile("com.alibaba:druid:${druidVersion}")
 
-    compile("com.github.pagehelper:pagehelper:${versions.pagehelperVersion}")
-    compile("com.github.jsqlparser:jsqlparser:${versions.jsqlparserVersion}")
+    compile("com.github.pagehelper:pagehelper:${pagehelperVersion}")
+    compile("com.github.jsqlparser:jsqlparser:${jsqlparserVersion}")
 
 
     compile fileTree(dir:'lib',include:'*.jar')
     
 
-    compile("com.alibaba:fastjson:${versions.fastjsonVersion}")
+    compile("com.alibaba:fastjson:${fastjsonVersion}")
 
-    compile("mysql:mysql-connector-java:${versions.mysqlVersion}")
-    compile("org.apache.commons:commons-lang3:${versions.commonsVersion}")
-	compile("com.google.guava:guava:${versions.guavaVersion}")
+    compile("mysql:mysql-connector-java:${mysqlVersion}")
+    compile("org.apache.commons:commons-lang3:${commonsVersion}")
+	compile("com.google.guava:guava:${guavaVersion}")
 
-    compile("com.h2database:h2:${versions.h2Version}")
+    compile("com.h2database:h2:${h2Version}")
 
 
     testCompile("junit:junit")
