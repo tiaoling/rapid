@@ -1,22 +1,18 @@
 package com.xiaojiuwo.models;
 
 
-import javax.persistence.*;
-
 /**
  * Created by liuhaibao on 15/12/31.
  */
-@Entity
+
 public class User {
 
-    @Id
-    @GeneratedValue
+
     private Long id;
 
-    @Column(nullable = false)
+
     private String name;
 
-    @Column
     private String state;
 
     public Long getId() {

@@ -25,7 +25,7 @@ public class PostsController {
 
         User user = new User();
         user.setName("abc");
-        usersService.save(user);
+
         List<User> users = usersService.findByName("abc");
         return "posts/index";
 

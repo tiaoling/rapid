@@ -1,19 +1,14 @@
 package com.xiaojiuwo.models;
 
 
-import javax.persistence.*;
-
 /**
  * Created by liuhaibao on 15/12/31.
  */
-@Entity
+
 public class Post {
 
-    @Id
-    @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
     private String title;
 
     public Long getId() {
