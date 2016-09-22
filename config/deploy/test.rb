@@ -6,7 +6,7 @@ set :deploy_to, "/JavaWeb/commission-services.wltest.com"
 
 set :jar_pid, "#{shared_path}/tmp/pids/application.pid"
 
-set :server_name, "10.3.45.201"
+set :server_name, "x.x.x.x"
 
 set :branch, "dev"
 

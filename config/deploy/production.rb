@@ -6,7 +6,7 @@ set :deploy_to, "/data/www/price-services"
 
 set :jar_pid, "#{shared_path}/tmp/pids/application.pid"
 
-set :server_name, "10.230.3.181"
+set :server_name, "x.x.x.x"
 
 set :branch, "master"
 
