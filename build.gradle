@@ -24,8 +24,6 @@ buildscript {
     }
     repositories {
         mavenCentral()
-        maven { url 'http://maven.oschina.net/content/groups/public/' }
-        maven { url 'http://maven.rfdoa.cn/content/groups/public/'}
         maven { url 'https://plugins.gradle.org/m2/'}
     }
     dependencies {
@@ -52,8 +50,6 @@ targetCompatibility = "${jdkVersion}"
 
 repositories {
     mavenCentral()
-    maven { url 'http://maven.oschina.net/content/groups/public/' }
-    maven { url 'http://maven.rfdoa.cn/content/groups/public/'}
     maven { url 'https://plugins.gradle.org/m2/'}
     flatDir {
         dirs 'lib'

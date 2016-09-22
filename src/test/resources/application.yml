@@ -7,15 +7,6 @@ spring:
     password:
     database-platform: org.hibernate.dialect.H2Dialect
 
-  jpa:
-    generate_ddl: true
-    hibernate:
-      dialect: org.hibernate.dialect.H2Dialect
-      ddl-auto: create-drop
-      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
-      database: H2
-      show_sql: true
-      format_sql: true
   thymeleaf:
     cache: false
 
@@ -27,7 +18,5 @@ logging:
     level:
         org.springframework: 'OFF'
         com.xiaojiuwo.models.mapper: 'DEBUG'
-
-
 
 
