@@ -19,11 +19,13 @@ ext{
 
 buildscript {
     ext {
-        springBootVersion = '1.3.5.RELEASE'
+        springBootVersion = '1.5.3.RELEASE'
 
     }
     repositories {
-        mavenCentral()
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven {url 'http://repo2.maven.org/maven2/'}
+        //mavenCentral()
         maven { url 'https://plugins.gradle.org/m2/'}
     }
     dependencies {
@@ -37,7 +39,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'spring-boot' 
+apply plugin: 'org.springframework.boot' 
 apply plugin: 'io.spring.dependency-management'
 apply plugin: "org.sonarqube"
 
@@ -115,5 +117,5 @@ eclipse {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.8'
+    gradleVersion = '3.5'
 }

@@ -1,5 +1,6 @@
 spring:
-
+  profiles.active: develop
+  
   datasource:
     url: jdbc:h2:~/base;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
     driverClassName: org.h2.Driver
@@ -11,7 +12,7 @@ spring:
     generate_ddl: true
     hibernate:
       dialect: org.hibernate.dialect.H2Dialect
-      ddl-auto: create-create
+      ddl-auto: create
       naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
       database: H2
       show_sql: true
@@ -23,11 +24,25 @@ spring:
 server:
   port: 10001
 
+
 logging:
     level:
         org.springframework: 'OFF'
         com.xiaojiuwo.models.mapper: 'DEBUG'
 
 
+---
+spring:
+  profiles: develop
 
+---
+spring:
+  profiles: test
 
+---
+spring:
+  profiles: demo
+
+---
+spring:
+  profiles: production

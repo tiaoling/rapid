@@ -1,23 +1,22 @@
 package com.xiaojiuwo.services;
 
-import com.xiaojiuwo.Application;
+import javax.transaction.Transactional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
-import javax.transaction.Transactional;
+import com.xiaojiuwo.Application;
 
 /**
  * Created by liuhaibao on 15/11/2.
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
-@WebAppConfiguration
+@SpringBootTest(classes = Application.class)
 @ImportResource("classpath:config/applicationContext.xml")
 @Transactional
 public class UsersServiceTest {
